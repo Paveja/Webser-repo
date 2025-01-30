@@ -1,32 +1,28 @@
 poddle:
   version: "1.0"
-  project: "feed-ontario"
-  type: "WEB_SERVICE"
-  appName: "order-service"
-  health: "/health"
+  project: google maps
+  appName: maps-management-service
+  type: WEB_SERVICE
+  health: /health
   port: 8080
   env:
-    preview:
-      branch: "main"
-      entryPoint: "index.js"
-      domain: "order-service-api.poddleops.com"
+    qa:
+      branch: main
+      entryPoint: index.js
       specs:
         compute:
-          cpu: 2
+          cpu: 2 
           memory: 2
           storage: 30
-          autoScaling:
-            replica:
-              min: 1
-              max: 3
         database:
           cpu: 2
           memory: 1
-          storage: 50
-          engine: "postgres"
+          storage: 30
+          engine: postgres
           version: "16"
       variables:
-        API_BASE_URL: "/api/v1"
-        DATABASE_URL: "your_database_url"
-        DATABASE_USERNAME: "database_user_name"
-        DATABASE_PASSWORD: "database_password"
+        BASE_URL: /api/v1
+        DATABASE_URL: "#{dbUrl}"
+        DATABASE_PORT: "#{dbPort}"
+        DATABASE_USERNAME: "#{dbUsername}"
+        DATABASE_PASSWORD: "#{dbPassword}"
