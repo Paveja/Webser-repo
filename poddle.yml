@@ -1,27 +1,27 @@
 poddle:
   version: "1.0"
-  project: userflow
-  appName: user-manage-service
-  type: WEB_SERVICE
-  health: /health
+  project: "feed-ontario"
+  type: "WEB_SERVICE"
+  appName: "order-service"
+  health: "/health"
   port: 8080
   env:
     preview:
-      entryPoint: index.js
+      branch: "dev"
+      entryPoint: "index.js"
       specs:
         compute:
-          cpu: 2 
+          cpu: 2
           memory: 2
           storage: 30
         database:
           cpu: 2
           memory: 1
-          storage: 30
-          engine: postgres
+          storage: 50
+          engine: "postgres"
           version: "16"
       variables:
-        BASE_URL: /api/v1
-        DATABASE_URL: "#{dbUrl}"
-        DATABASE_PORT: "#{dbPort}"
-        DATABASE_USERNAME: "#{dbUsername}"
-        DATABASE_PASSWORD: "#{dbPassword}"
+        API_BASE_URL: "/api/v1"
+        DATABASE_URL: "your_database_url"
+        DATABASE_USERNAME: "database_user_name"
+        DATABASE_PASSWORD: "database_password"
