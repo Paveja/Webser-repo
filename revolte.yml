@@ -21,7 +21,10 @@ revolte:
           engine: "postgres"
           version: "16"
       variables:
-        API_BASE_URL: "/api/v1"
-        DATABASE_URL: "your_database_url"
-        DATABASE_USERNAME: "database_user_name"
-        DATABASE_PASSWORD: "database_password"
+        BASE_URL: /api/v1
+        DATABASE_URL: "#{dbUrl}"
+        DATABASE_PORT: "#{dbPort}"
+        DATABASE_USERNAME: "#{dbUsername}"
+        DATABASE_PASSWORD: "#{dbPassword}"
+        DATABASE_NAME: "#{dbUser}"
+        THIRD_PARTY_URL: https://testtt.requestcatcher.com/
