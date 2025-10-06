@@ -101,5 +101,5 @@ revolte:
           name: storage_bucket_service2
           configurations:
             bucketName: revolte-ramco-blue-2-production
-            versioningStatus: disabled
+            versioningStatus: suspended
             public: false
