@@ -42,7 +42,7 @@ app.post("/upload", async (req, res) => {
       return res.status(400).send("No file received");
     }
 
-    const bucketName = 'revolte-ramco-blue-2-qa';
+    const bucketName = process.env.BUCKET_NAME
     const key = "apple.png";
 
     // Upload to S3
