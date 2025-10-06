@@ -120,6 +120,6 @@ revolte:
           type: STORAGE_BUCKET
           name: storage_bucket_service
           configurations:
-            bucketName: revolte-ramco-blue-1-preview
+            bucketName: revolte-ramco-blue-1-previews
             versioningStatus: enabled
             public: true
