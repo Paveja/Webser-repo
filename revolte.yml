@@ -2,7 +2,7 @@ revolte:
   version: '1.0'
   project: Strike
   appName: Kenndal
-  config:
+  # config:
     # codeReview:
     #   summarize: true
     #   suggestFixes: true
@@ -64,7 +64,7 @@ revolte:
           configurations:
             bucketName: kendall-bucket-green-qa
             versioningStatus: suspended
-            public: false
+            public: true
     production:
       branch: dev
       codeReview: false
