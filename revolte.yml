@@ -53,6 +53,7 @@ revolte:
               ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
               SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
               REGION: '#{storage_bucket_service.region}'
+              BUCKET_NAME: 'revolte-ramco-blue-2-qa'
           specifications:
             cpu: 2
             memory: 2
