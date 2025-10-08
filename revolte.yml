@@ -1,7 +1,7 @@
 revolte:
   version: '1.0'
   project: Strike
-  appName: Kenndal
+  appName: Knight
   env:
     staging:
       branch: dev
