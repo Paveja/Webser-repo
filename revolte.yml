@@ -10,6 +10,9 @@ revolte:
   env:
     staging:
       branch: dev
+      codeReview: false
+      codeQuality: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -66,6 +69,9 @@ revolte:
             public: true
     production:
       branch: dev
+      codeReview: false
+      codeQuality: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
@@ -95,6 +101,9 @@ revolte:
             versioningStatus: enabled
             public: true
     preview:
+      codeReview: false
+      codeQuality: false
+      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
