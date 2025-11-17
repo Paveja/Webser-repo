@@ -3,7 +3,7 @@ revolte:
   project: Strike
   appName: Knight
   env:
-    qa:
+    preview:
       branch: main
       services:
         rid_1:
