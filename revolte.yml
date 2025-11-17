@@ -10,7 +10,7 @@ revolte:
           type: WEB_SERVICE
           name: web_service
           entryPoint: app.js
-          apiEntryPoint: Gateway,
+          apiEntryPoint: Gateway
           route:
             path: /api-service
             stripBasePath: false
