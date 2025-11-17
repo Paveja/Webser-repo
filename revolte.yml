@@ -1,131 +1,25 @@
 revolte:
-  version: '1.0'
+  version: "1.0"
   project: Strike
   appName: Knight
-  config:
-    codeQuality:
-      codeStyle:
-        rules:
-          javascript/arrayCallbackReturn: error
   env:
-    staging:
-      branch: dev
-      codeReview: false
-      codeQuality: false
-      testSuite: false
-      services:
-        rid_1:
-          type: WEB_SERVICE
-          name: web_service
-          entryPoint: index.js
-          properties:
-            health: /health
-            port: 8080
-            variables:
-              BASE_URL: /api/v1
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-        rid_2:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: kendall-bucket-red-staging
-            versioningStatus: enabled
-            public: true
     qa:
       branch: main
-      codeReview: false
-      codeQuality: false
-      testSuite: false
       services:
         rid_1:
           type: WEB_SERVICE
           name: web_service
           entryPoint: app.js
+          apiEntryPoint: Gateway,
+          route:
+            path: /api-service
+            stripBasePath: false
           properties:
-            health: /health
+            health: /api-service/health
             port: 8080
             variables:
               BASE_URL: /api/v1
-              # ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              # SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              # REGION: '#{storage_bucket_service.region}'
-              # Random variable: '1234'
           specifications:
             cpu: 2
             memory: 2
             storage: 30
-        # rid_2:
-        #   type: STORAGE_BUCKET
-        #   name: storage_bucket_service
-        #   configurations:
-        #     bucketName: kendall-bucket-yellow-qa
-        #     versioningStatus: suspended
-        #     public: true
-    production:
-      branch: dev
-      codeReview: false
-      codeQuality: false
-      testSuite: false
-      services:
-        rid_1:
-          type: WEB_SERVICE
-          name: web_service
-          entryPoint: index.js
-          properties:
-            health: /health
-            port: 8080
-            variables:
-              BASE_URL: /api/v1
-              # ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              # SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              # REGION: '#{storage_bucket_service.region}'
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-            autoScaling:
-              replica:
-                min: 1
-                max: 1
-        # rid_2:
-        #   type: STORAGE_BUCKET
-        #   name: storage_bucket_service
-        #   configurations:
-        #     bucketName: kendall-bucket-yellow-production
-        #     versioningStatus: enabled
-        #     public: true
-    preview:
-      codeReview: false
-      codeQuality: false
-      testSuite: false
-      services:
-        rid_1:
-          type: WEB_SERVICE
-          name: web_service
-          entryPoint: index.js
-          properties:
-            health: /health
-            port: 8080
-            variables:
-              BASE_URL: /api/v1
-              ACCESS_KEY_ID: '#{storage_bucket_service.accessKeyId}'
-              SECRET_ACCESS_KEY_ID: '#{storage_bucket_service.secretAccessKeyId}'
-              REGION: '#{storage_bucket_service.region}'
-              BUCKET_NAME: kendall-bucket-red-preview
-          specifications:
-            cpu: 2
-            memory: 1
-            storage: 30
-        rid_2:
-          type: STORAGE_BUCKET
-          name: storage_bucket_service
-          configurations:
-            bucketName: summa-first-bucket
-            versioningStatus: enabled
-            public: true
