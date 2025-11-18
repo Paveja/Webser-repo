@@ -29,20 +29,34 @@ const server = app.listen(8080, function () {
 
 // --- WEBSOCKET ENDPOINT ---
 const wss = new WebSocketServer({ server, path: "/ws" });
+
 wss.on("connection", (ws) => {
   console.log("Client connected to WebSocket");
 
   ws.send("Welcome to WebSocket!");
 
+  // Send message every 5 seconds
+  const intervalId = setInterval(() => {
+    if (ws.readyState === ws.OPEN) {
+      ws.send("Ping from server every 5 seconds");
+    }
+  }, 5000);
+
   ws.on("message", (message) => {
     console.log("Received:", message.toString());
-
-    // Echo back
     ws.send(`You said: ${message}`);
   });
 
   ws.on("close", () => {
     console.log("Client disconnected");
+
+    // Stop the interval when client disconnects
+    clearInterval(intervalId);
+  });
+
+  ws.on("error", (err) => {
+    console.error("Socket error:", err);
+    clearInterval(intervalId);
   });
 });
 
