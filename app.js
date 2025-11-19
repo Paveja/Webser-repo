@@ -15,9 +15,10 @@ app.get("/", function (req, res) {
 });
 
 // Define request response in root URL (/)
-app.get("/api-service/health", function (req, res) {
+app.get("/health", function (req, res) {
   res.json({
-    app2: true,
+    project1: true,
+    app1: true,
     success: true,
   });
 });

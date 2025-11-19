@@ -35,7 +35,7 @@ revolte:
             path: /api-service
             stripBasePath: false
           properties:
-            health: /api-service/health
+            health: /health
             port: 8080
             variables:
               BASE_URL: /api/v1
