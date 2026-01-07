@@ -1,7 +1,7 @@
 revolte:
   version: "1.0"
-  project: Strike
-  appName: Knight
+  project: demo-projs
+  appName: node-app
   env:
     qa:
       branch: main
