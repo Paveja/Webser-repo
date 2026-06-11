@@ -23,7 +23,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /user-vault/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -42,7 +42,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /user-vault/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
@@ -61,7 +61,7 @@ revolte:
           name: web_service
           entryPoint: index.js
           properties:
-            health: /health
+            health: /user-vault/health
             port: 8080
             loadBalancerMode: dedicated
             variables:
